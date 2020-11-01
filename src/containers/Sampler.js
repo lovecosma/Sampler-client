@@ -1,14 +1,43 @@
 import React, { Component } from 'react'
+import { Player } from 'tone'
+import { connect } from 'react-redux'
+import fetchSamples from '../actions/fetchSamples'
+
 
 export class Sampler extends Component {
+
+    triggerSample() {
+        this.toMaster().start()
+    }
+
+    componentDidMount = () => {
+        this.props.fetchSamples()
+    }
     render() {
-        return (
-            
-            <div>
-                
-            </div>
-        )
+        if(this.props.samplesReducer.requesting){
+            return <div><h3>Loading...</h3></div>
+        } else {
+        const sampleCards = this.props.samplesReducer.sampler.map(sample => {
+            const player = new Player(sample.url)
+            return (
+            <button onClick={this.triggerSample.bind(player)} className="box">
+                {sample.name}
+            </button>
+            )
+        })
+            return (
+                <div className="black" id='sampler'>
+                    {sampleCards}
+                </div>
+            ) 
+        }
     }
 }
 
-export default Sampler
+const mapStateToProps = state => {
+    return {
+        ...state
+    }
+}
+
+export default connect(mapStateToProps, { fetchSamples })(Sampler)
