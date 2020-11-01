@@ -5,6 +5,9 @@ import Sampler from './containers/Sampler'
 function App() {
   return (
     <div>
+      <div className="black white-text center card" id="app-title">
+        <h1>Sampler</h1>
+      </div>
      <Sampler/>
      <SampleForm/>
     </div>
