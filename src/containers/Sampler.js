@@ -5,9 +5,16 @@ import fetchSamples from '../actions/fetchSamples'
 
 
 export class Sampler extends Component {
+    state = {
+        playMode: false
+    }
 
     triggerSample() {
-        this.toMaster().start()
+        this.toDestination().start()
+    }
+
+    keyPressed() {
+        debugger
     }
 
     componentDidMount = () => {
@@ -20,7 +27,7 @@ export class Sampler extends Component {
         const sampleCards = this.props.samplesReducer.sampler.map(sample => {
             const player = new Player(sample.url)
             return (
-            <button onClick={this.triggerSample.bind(player)} className="box">
+            <button key={`Sample ${sample.id}`}onClick={this.triggerSample.bind(player)} className="box">
                 {sample.name}
             </button>
             )
@@ -29,7 +36,7 @@ export class Sampler extends Component {
                 <div className="black" id='sampler'>
                     {sampleCards}
                 </div>
-            ) 
+            )
         }
     }
 }

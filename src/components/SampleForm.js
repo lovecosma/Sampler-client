@@ -1,23 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import createSample from './actions/createSample'
-import fetchSamples from './actions/fetchSamples'
-import addExistingSampleToSampler from './actions/addExistingSampleToSampler'
+import createSample from '../actions/createSample'
+import fetchSamples from '../actions/fetchSamples'
+import addExistingSampleToSampler from '../actions/addExistingSampleToSampler'
 
 export class SampleForm extends Component {
     state ={
         name: "",
         file: "",
+        sample: {}
     }
 
     handleSelection = e => {
-        console.log(e.target.value);
+     this.setState({sample: JSON.parse(e.target.value)});
     }
 
     handleAdd = e => {
         e.preventDefault()
-        debugger
-        this.props.addExistingSampleToSampler(e.target.value)
+        this.setState({
+            sample: null
+        })
+        this.props.addExistingSampleToSampler(this.state.sample)
     }
 
     handleChange = event => {
@@ -37,7 +40,7 @@ export class SampleForm extends Component {
             name: "",
             file: "",
         })
-        this.props.createSample(this.state)
+        this.props.createSample({name: this.state.name, file: this.state.file})
     }
 
     componentDidMount = () => {
@@ -50,7 +53,7 @@ export class SampleForm extends Component {
         } else {
             const existingSamples = this.props.samplesReducer.samples.map(sample => {
                 return (
-                    <option key={`Sample ${sample.id}`} value={sample}>
+                    <option key={`Sample ${sample.id}`} value={JSON.stringify(sample)}>
                         {sample.name}
                     </option>
                 )

@@ -1,5 +1,5 @@
 import './App.css';
-import SampleForm from './SampleForm'
+import SampleForm from './components/SampleForm'
 import Sampler from './containers/Sampler'
 
 function App() {
