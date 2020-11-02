@@ -8,6 +8,7 @@ export class SampleForm extends Component {
     state ={
         name: "",
         file: "",
+        color: "#FF0000",
         sample: {}
     }
 
@@ -39,8 +40,9 @@ export class SampleForm extends Component {
         this.setState({
             name: "",
             file: "",
+            color: ""
         })
-        this.props.createSample({name: this.state.name, file: this.state.file})
+        this.props.createSample({name: this.state.name, file: this.state.file, color: this.state.color})
     }
 
     componentDidMount = () => {
@@ -63,22 +65,28 @@ export class SampleForm extends Component {
                     <div className="form-div">
                         <form action="">
                             <div className="name-input">
-                                <label htmlFor="name">Sample Name:</label>
+                                <label className="large-font" htmlFor="name">Name:</label>
                                 <input onChange={this.handleChange} type="text" name="name" id="sample-name-input" value={this.state.name}></input>
                             </div>
+                            <div className="color-input">
+                                <label className="large-font" htmlFor="name">Color:</label>
+                                <input onChange={this.handleChange} type="color" name="color" value={this.state.color}></input>
+                            </div>
                             <div>
-                            <input onChange={this.handleFileChange} type="file" name="file" id=""></input>
-                            <button type="SUBMIT" onClick={this.sendInfo}>Submit</button>
+                            <input className='white' onChange={this.handleFileChange} type="file" name="file" id=""></input><br/><br/>
+                            <button type="SUBMIT" onClick={this.sendInfo}>Create Sample</button>
                             </div>
                         </form>
                     </div>
-                    <h3>-OR-</h3>
+                    <p>-OR-</p>
                     <div className="form-div">
                         <form onSubmit={this.handleAdd}>
                                 <select onChange={this.handleSelection} name="samples" id="samples">
                                     {existingSamples}
                                 </select>
-                            <button>Add Existing Sample</button>
+                                <div>
+                            <button>Load Sample</button>       
+                                </div>
                         </form>
                     </div>
                 </div>

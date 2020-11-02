@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="https://img.icons8.com/fluent/48/000000/rainbow.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -24,13 +24,47 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
 
-    <title>React App</title>
+    <title>Sampler</title>
     <style>
       html{
         background-color: black;
+      }
+      body{
+        font-family: 'Permanent Marker', cursive;
+      }
+      .large-font{
+        font-size: 30px;
+        color: white
+      }
+      #pad-1{
+        background-color: red
+      }
+      #pad-2{
+        background-color: orange;
+      }
+      button{
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1em;
+      }
+      .form-div{
+        background-color: black;
+        border: 1.5px dashed;
+        border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+        border-image-slice: 1;
+        width: 30%
+      }
+      .rainbow{
+        padding: 5px;
+        background-color: black;
+        border: 1.5px dashed;
+        border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+        border-image-slice: 1;
+      }
+      #input-field{
+        background-color: white;
       }
         .box {
                 display: inline-block;
@@ -51,7 +85,8 @@
           width: 300px;
         }
         #sample-name-input{
-          width: 300px
+          width: 300px;
+          background-color: white;
         }
         div{
           padding: 15px

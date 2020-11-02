@@ -6,7 +6,9 @@ function App() {
   return (
     <div>
       <div className="black white-text center card" id="app-title">
-        <h1>Sampler</h1>
+        <div className="rainbow">
+        <div className="rainbow"><h1>Sampler</h1></div>
+        </div>
       </div>
      <Sampler/>
      <SampleForm/>

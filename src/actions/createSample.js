@@ -4,6 +4,7 @@ const createSample = sample => {
         const formData = new FormData();
         formData.append("name", sample.name);
         formData.append("file", sample.file)
+        formData.append("color", sample.color)
         const configObj = {
             method: "POST",
             body: formData

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Player } from 'tone'
 import { connect } from 'react-redux'
+import { keyPressed } from 'p5'
 import fetchSamples from '../actions/fetchSamples'
 
 
@@ -27,7 +28,7 @@ export class Sampler extends Component {
         const sampleCards = this.props.samplesReducer.sampler.map(sample => {
             const player = new Player(sample.url)
             return (
-            <button key={`Sample ${sample.id}`}onClick={this.triggerSample.bind(player)} className="box">
+            <button key={`Sample ${sample.id}`} onClick={this.triggerSample.bind(player)} style={{backgroundColor: sample.color}} className="box">
                 {sample.name}
             </button>
             )
