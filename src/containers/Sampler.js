@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Player } from 'tone'
 import { connect } from 'react-redux'
-import { keyPressed } from 'p5'
 import fetchSamples from '../actions/fetchSamples'
 
 
@@ -33,11 +32,19 @@ export class Sampler extends Component {
             </button>
             )
         })
+        if(sampleCards.length == 0){
             return (
-                <div className="black" id='sampler'>
-                    {sampleCards}
+                <div className="black rainbow white-text center" id='sampler'>
+                    <h5>Create or load some samples!</h5>
                 </div>
             )
+        }else{
+                return (
+                    <div className="black rainbow" id='sampler'>
+                        {sampleCards}
+                    </div>
+                )
+            }
         }
     }
 }
