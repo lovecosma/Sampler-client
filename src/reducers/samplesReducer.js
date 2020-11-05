@@ -8,8 +8,8 @@ function samplesReducer(state = { samples: [], requesting: false, sampler: []}, 
       case 'ADD_SAMPLE':
         return {
           ...state,
-          samples: [...state.samples, action.sample],
-          sampler: [...state.sampler, action.sample],
+          samples: [...state.samples, action.payload.sample],
+          sampler: [...state.sampler, action.payload.audio_sample],
           requesting: false
         }
       case 'START_FECTHING_SAMPLES_REQUEST':
@@ -32,7 +32,7 @@ function samplesReducer(state = { samples: [], requesting: false, sampler: []}, 
         case 'ADD_EXISTING':
             return {
                 ...state,
-                sampler: [...state.sampler, action.sample],
+                sampler: [...state.sampler, action.audio_sample],
                 requesting: false
             }
         default:

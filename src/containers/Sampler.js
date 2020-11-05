@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Player } from 'tone'
 import { connect } from 'react-redux'
 import fetchSamples from '../actions/fetchSamples'
 
@@ -25,14 +24,13 @@ export class Sampler extends Component {
             return <div><h3>Loading...</h3></div>
         } else {
         const sampleCards = this.props.samplesReducer.sampler.map(sample => {
-            const player = new Player(sample.url)
             return (
-            <button key={`Sample ${sample.id}`} onClick={this.triggerSample.bind(player)} style={{backgroundColor: sample.color}} className="box">
+            <button key={`Sample ${sample.id}`} onClick={this.triggerSample.bind(sample.player)} style={{borderColor: sample.color}} className="box white-text">
                 {sample.name}
             </button>
             )
         })
-        if(sampleCards.length == 0){
+        if(sampleCards.length === 0){
             return (
                 <div className="black rainbow white-text center" id='sampler'>
                     <h5>Create or load some samples!</h5>
