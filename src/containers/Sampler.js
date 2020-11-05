@@ -3,9 +3,13 @@ import { connect } from 'react-redux'
 import fetchSamples from '../actions/fetchSamples'
 
 
+
 export class Sampler extends Component {
     state = {
-        playMode: false
+        playMode: false,
+        loading: ["Loading", "Loading Your", "Loading Your Sample", "Loading Your Sample.", "Loading Your Sample. .", "Loading Your Sample. . .", "Loading Your Sample. . . ."],
+        counter : 0
+
     }
 
     triggerSample() {
@@ -16,12 +20,25 @@ export class Sampler extends Component {
         debugger
     }
 
+    increment = () => {
+        if(this.state.counter < this.state.loading.length){
+            this.setState({counter: this.state.counter + 1})
+        } else{
+            this.setState({counter: 0})
+        }
+    }
+
     componentDidMount = () => {
         this.props.fetchSamples()
+        setInterval(this.increment, 250)
     }
     render() {
         if(this.props.samplesReducer.requesting){
-            return <div><h3>Loading...</h3></div>
+            return ( 
+            <div className="black rainbow white-text" id='sampler'>
+                <h3>{this.state.loading[this.state.counter]}</h3>
+            </div>
+            )
         } else {
         const sampleCards = this.props.samplesReducer.sampler.map(sample => {
             return (
