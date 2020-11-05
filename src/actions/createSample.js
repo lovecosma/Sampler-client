@@ -14,8 +14,9 @@ const createSample = sample => {
         fetch('http://localhost:3001/audios', configObj)
         .then(resp => resp.json())
         .then(sample => {
+            // console.log(sample.url);
             let buffer = new Buffer(sample.url, function(){
-                var buff = buffer.get();
+                let buff = buffer.get()
                 let player = new Player(buff)
                 let audio_sample = {
                     ...sample,
