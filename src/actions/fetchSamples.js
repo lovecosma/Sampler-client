@@ -6,6 +6,7 @@ const fetchSamples = () => {
         .then(samples => {
             dispatch({type: 'ADD_SAMPLES', samples})
         })
+        .catch(error => alert(error))
     }
 }
 
