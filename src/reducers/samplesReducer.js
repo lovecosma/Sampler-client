@@ -1,4 +1,4 @@
-function samplesReducer(state = { samples: [], requesting: false, sampler: []}, action) {
+function samplesReducer(state = { samples: [], requesting: false, sampler: [], error: false}, action) {
     switch (action.type) {
       case 'START_ADDING_SAMPLE_REQUEST':
         return {
@@ -34,6 +34,16 @@ function samplesReducer(state = { samples: [], requesting: false, sampler: []}, 
                 ...state,
                 sampler: [...state.sampler, action.audio_sample],
                 requesting: false
+            }
+          case 'THROW_ERROR':
+            return {
+                ...state,
+                error: true
+            }
+          case 'CLEAR_ERROR':
+            return {
+                ...state,
+                error: false
             }
         default:
             return {

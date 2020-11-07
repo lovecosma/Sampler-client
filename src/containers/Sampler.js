@@ -57,14 +57,15 @@ export class Sampler extends Component {
         const sampleCards = this.props.samplesReducer.sampler.map(sample => {
             return (
             <button key={`Sample ${sample.id}`} onClick={this.triggerSample.bind(sample.player)} style={{borderColor: sample.color}} className="box white-text">
-                {sample.name}
+              <p className="medium-font" >{sample.name}</p>
+              <p className="medium-font">'{sample.key}'</p>
             </button>
             )
         })
         if(sampleCards.length === 0){
             return (
                 <div className="black rainbow white-text center" id='sampler'>
-                    <h5>Create or load some samples!</h5>
+                    <h3>Create or load some samples below!</h3>
                 </div>
             )
         }else{

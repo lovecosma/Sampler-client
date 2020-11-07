@@ -7,12 +7,11 @@ import rootReducer from './reducers/rootReducer';
 import App from './App'
 
 
-
 const store = createStore(rootReducer, applyMiddleware(thunk))
 ReactDOM.render(
   <React.StrictMode>
      <Provider store={store} >
-       <div >
+       <div className="container">
         <App />
        </div>
       </Provider>

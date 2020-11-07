@@ -5,13 +5,17 @@ import Sampler from './containers/Sampler'
 function App() {
   return (
     <div>
-      <div className="black white-text center card" id="app-title">
-        <div className="rainbow">
-        <div className="rainbow"><h1>Sampler</h1></div>
+      <div>
+        <div className="black rainbow white-text center card" id="app-title">
+            <h1>Sampler</h1>
         </div>
       </div>
-     <Sampler/>
-     <SampleForm/>
+        <div>
+          <Sampler/>
+        </div>
+        <div style={{display: "float", marginLeft:"0", padding:"0"}}>
+          <SampleForm/>
+        </div>
     </div>
   );
 }
