@@ -1,4 +1,4 @@
-This is the frontend for a Simple Web Audio Sampler
+# This is the frontend for a Simple Web Audio Sampler
 
 # What is a sampler?
 
@@ -6,7 +6,7 @@ A sampler is an electronic musical instrument which uses sound recordings (or "s
 
 This application allows users to upload new samples, or select from samples previously loaded by other users.
 
-# How to use this app:
+# How to use this Simple Audio Sampler:
   
   - make sure [backend](https://github.com/lovecosma/Sampler-backend) is installed and configured 
   - fork and clone this repo
