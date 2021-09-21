@@ -24,11 +24,11 @@ Video demo [here](https://youtu.be/Onyck4wJM5U)
 
 # Key technology:
 
-Ruby on Rails - scalable and secure web framework utilizing MVC architecture with RESTful routes
-postgresql - SQL compliant relational database management system
-activerecord - object relational mapping library
-activestorage - storing files in pg database using activerecord
-aws-s3 - API allowing file storage in cloud
-heroku - deployment
-Tone.js - Web Audio API wrapper framework
-React/Redux - javascript framework for SPA client side rendering
+- Ruby on Rails - scalable and secure web framework utilizing MVC architecture with RESTful routes
+- postgresql - SQL compliant relational database management system
+- activerecord - object relational mapping library
+- activestorage - storing files in pg database using activerecord
+- aws-s3 - API allowing file storage in cloud
+- heroku - deployment
+- Tone.js - Web Audio API wrapper framework
+- React/Redux - javascript framework for SPA client side rendering
